@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:23:57 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/07/31 08:08:09 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/07/31 08:21:17 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ struct	s_room
 
 t_room	*room_create(char *id, int x, int y);
 void	room_add_link(t_room *room, t_room *link);
+void	print_room(t_room *room);
+
+
+
+
 #endif
