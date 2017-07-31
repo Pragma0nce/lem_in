@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:29:19 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/07/31 08:55:17 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/07/31 09:25:16 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	room_add_link(t_room *room, t_room *link)
 	}
 	else
 	{
-		temp = (t_room**)malloc(sizeof(t_room*) + 1);
+		temp = (t_room**)malloc(sizeof(t_room*) * (room->n_links + 1));
 		while (i < room->n_links)
 		{
 			temp[i] = room->links[i];
