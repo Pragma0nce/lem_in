@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:23:57 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/07/31 08:21:17 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/07/31 08:41:00 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ struct	s_room
 	char		*id;
 	t_vector	position;
 	t_room		**links;
+	
 	int			n_links;
 };
 

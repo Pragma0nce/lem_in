@@ -6,13 +6,12 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:29:19 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/07/31 08:03:31 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/07/31 08:55:17 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-#define	BLOCK_SIZE 4
 
 t_room	*room_create(char *id, int x, int y)
 {
@@ -30,10 +29,26 @@ t_room	*room_create(char *id, int x, int y)
 
 void	room_add_link(t_room *room, t_room *link)
 {
+	t_room **temp;
+	int i;
+
+	i = 0;
 	if (room->n_links == 0)
 	{
-		room->links = (t_room**)malloc(sizeof(t_room*) * BLOCK_SIZE);
+		room->links = (t_room**)malloc(sizeof(t_room*));
 		room->links[0] = link;
+		room->n_links++;
+	}
+	else
+	{
+		temp = (t_room**)malloc(sizeof(t_room*) + 1);
+		while (i < room->n_links)
+		{
+			temp[i] = room->links[i];
+			i++;
+		}
+		temp[i] = link;
+		room->links = temp;
 		room->n_links++;
 	}
 }
