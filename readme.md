@@ -1,3 +1,8 @@
+############# TODO	#################
+1) Work on queue, enqueue etc.
+
+	t_vertex item;
+
 Given the following ant farm structure:
 
     [2]
@@ -12,7 +17,7 @@ SOLUTION:
 - Find the shortest path available for the first ant.
 - Let the first ant take a step.
 - Find the shortest path available for the second and, blocking out the node the first ant stands on.
-- Let the second and take a step.
+- Let the second ant take a step.
 ... 
 
 TRIVIAL SOLUTION:

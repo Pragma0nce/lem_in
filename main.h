@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:23:57 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/07/31 08:41:00 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/08/01 15:32:35 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,29 @@
 #define	ft_strlen	strlen
 #define	ft_strcpy	strcpy
 
-typedef	struct	s_room		t_room;
-typedef	struct	s_vector	t_vector;
+#define	BOOL	int
+#define	TRUE	1
+#define FALSE	0
+
+enum E_COLOR
+{
+	WHITE,
+	GRAY,
+	BLACK
+};
+
+typedef	struct	s_vertex		t_vertex;
+typedef	struct	s_vector		t_vector;
+typedef	struct	s_queue			t_queue;
+
+struct	t_queue
+{
+	int				front;
+	int				rear;
+	int				size;
+	unsigned int	capacity;
+	t_vertex		*array;
+}
 
 struct	s_vector
 {
@@ -31,19 +52,17 @@ struct	s_vector
 	int y;
 };
 
-
-struct	s_room
+struct	s_vertex
 {
-	char		*id;
-	t_vector	position;
-	t_room		**links;
-	
-	int			n_links;
+	char			*id;
+	enum E_COLOR	color;
+	int				distance;
+	t_vertex		*pre;
 };
 
-t_room	*room_create(char *id, int x, int y);
-void	room_add_link(t_room *room, t_room *link);
-void	print_room(t_room *room);
+t_vertex	*vertex_create(char *id, int x, int y);
+void	vertex_add_link(t_vertex *vertex, t_vertex *link);
+void	print_vertex(t_vertex *vertex);
 
 
 

@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   queue.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/01 15:26:18 by kcoetzee          #+#    #+#             */
+/*   Updated: 2017/08/01 15:59:44 by kcoetzee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+t_queue	*create_queue(unsigned int capacity)
+{
+	t_queue *temp;
+
+	temp = (t_queue*)malloc(sizeof(t_queue));
+	temp->capacity = capacity;
+	temp->front = 0;
+	temp->size = 0;
+	temp->rear = capacity - 1;
+	temp->array = (t_vertex*)malloc(capacity * sizeof(t_vertex));
+}
+
+int		queue_is_full(t_queue *queue)
+{
+	return (queue->size == queue->capacity);
+}
+
+int		queue_is_empty(t_queue *queue)
+{
+	return (queue->size == 0);
+}
+
+void	enqueue(t_queue *queue, t_vertex vertex)
+{
+	if (queue_is_full(queue))
+		return;
+
+	queue->rear = (queue->rear + 1) % queue->capacity;
+	queue->array[queue->rear] = vertex;
+	queue->size = queue->size + 1;
+}
+
+t_vertex	dequeue(t_queue *queue)
+{
+	t_vertex item;
+	if (isEmpty(queue))
+		return (NULL);
+}
