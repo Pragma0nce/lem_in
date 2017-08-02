@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:23:57 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/08/02 13:58:30 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/08/02 14:14:25 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ void	vertex_add_link(t_vertex *vertex, t_vertex *link);
 void	print_vertex(t_vertex *vertex);
 
 t_queue	*create_queue(unsigned int capacity);
-void	enqueue(t_queue *queue, t_vertex vertex);
-t_vertex	front(t_queue *queue);
+void	enqueue(t_queue *queue, t_vertex *vertex);
+t_vertex	dequeue(t_queue *queue);
+t_vertex	*front(t_queue *queue);
 
 
 

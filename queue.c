@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 15:26:18 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/08/02 14:00:35 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/08/02 14:12:34 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,21 @@ int		queue_is_empty(t_queue *queue)
 	return (queue->size == 0);
 }
 
-void	enqueue(t_queue *queue, t_vertex vertex)
+void	enqueue(t_queue *queue, t_vertex *vertex)
 {
 	if (queue_is_full(queue))
 		return;
 
 	queue->rear = (queue->rear + 1) % queue->capacity;
-	queue->array[queue->rear] = vertex;
+	queue->array[queue->rear] = *vertex;
 	queue->size = queue->size + 1;
 }
 
-// FRONT AND REAR //
-t_vertex	front(t_queue *queue)
+t_vertex	*front(t_queue *queue)
 {
-	return (queue->array[queue->front]);
+	if (queue_is_empty(queue))
+		return (NULL);
+	return (&queue->array[queue->front]);
 }
 
 t_vertex	dequeue(t_queue *queue)
