@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:23:57 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/08/02 14:14:25 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/08/02 14:38:45 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ enum E_COLOR
 typedef	struct	s_vertex		t_vertex;
 typedef	struct	s_vector		t_vector;
 typedef	struct	s_queue			t_queue;
+typedef	struct	s_adj_list		t_adj_list;
+typedef	struct	s_graph			t_graph;
 
 struct	s_queue
 {
@@ -58,6 +60,17 @@ struct	s_vertex
 	enum E_COLOR	color;
 	int				distance;
 	t_vertex		*pre;
+};
+
+struct	s_adj_list
+{
+	t_vertex	*head;
+};
+
+struct	s_graph
+{
+	int v;
+	t_vertex	*array;
 };
 
 t_vertex	*vertex_create(char *id, int x, int y);
