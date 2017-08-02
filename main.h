@@ -6,7 +6,7 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 07:23:57 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/08/01 15:32:35 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/08/02 13:58:30 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ typedef	struct	s_vertex		t_vertex;
 typedef	struct	s_vector		t_vector;
 typedef	struct	s_queue			t_queue;
 
-struct	t_queue
+struct	s_queue
 {
 	int				front;
 	int				rear;
 	int				size;
 	unsigned int	capacity;
 	t_vertex		*array;
-}
+};
 
 struct	s_vector
 {
@@ -64,6 +64,9 @@ t_vertex	*vertex_create(char *id, int x, int y);
 void	vertex_add_link(t_vertex *vertex, t_vertex *link);
 void	print_vertex(t_vertex *vertex);
 
+t_queue	*create_queue(unsigned int capacity);
+void	enqueue(t_queue *queue, t_vertex vertex);
+t_vertex	front(t_queue *queue);
 
 
 

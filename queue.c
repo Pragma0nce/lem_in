@@ -6,9 +6,11 @@
 /*   By: kcoetzee <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/01 15:26:18 by kcoetzee          #+#    #+#             */
-/*   Updated: 2017/08/01 15:59:44 by kcoetzee         ###   ########.fr       */
+/*   Updated: 2017/08/02 14:00:35 by kcoetzee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "main.h"
 
 t_queue	*create_queue(unsigned int capacity)
 {
@@ -20,6 +22,7 @@ t_queue	*create_queue(unsigned int capacity)
 	temp->size = 0;
 	temp->rear = capacity - 1;
 	temp->array = (t_vertex*)malloc(capacity * sizeof(t_vertex));
+	return (temp);
 }
 
 int		queue_is_full(t_queue *queue)
@@ -42,9 +45,19 @@ void	enqueue(t_queue *queue, t_vertex vertex)
 	queue->size = queue->size + 1;
 }
 
+// FRONT AND REAR //
+t_vertex	front(t_queue *queue)
+{
+	return (queue->array[queue->front]);
+}
+
 t_vertex	dequeue(t_queue *queue)
 {
 	t_vertex item;
-	if (isEmpty(queue))
-		return (NULL);
+	if (queue_is_empty(queue))
+		return (item);
+	item = queue->array[queue->front];
+	queue->front = (queue->front + 1) % queue->capacity;
+	queue->size = queue->size - 1;
+	return (item);
 }
